@@ -1,5 +1,7 @@
 package com.douglaspacheco.authservice.auth_api.controller;
 
+import com.douglaspacheco.authservice.auth_api.dto.AuthResponse;
+import com.douglaspacheco.authservice.auth_api.dto.LoginRequest;
 import com.douglaspacheco.authservice.auth_api.model.User;
 import com.douglaspacheco.authservice.auth_api.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -18,5 +20,10 @@ public class AuthController {
     @PostMapping("/register")
     public User register(@RequestBody User user){
         return authService.register(user);
+    }
+
+    @PostMapping("/login")
+    public AuthResponse login(@RequestBody LoginRequest request){
+        return authService.login(request);
     }
 }
